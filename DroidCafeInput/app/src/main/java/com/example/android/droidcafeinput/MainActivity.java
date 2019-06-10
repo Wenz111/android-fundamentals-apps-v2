@@ -91,17 +91,49 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+//        int id = item.getItemId();
 
         // This comment suppresses the Android Studio warning about simplifying
         // the return statements.
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_order) {
+//            return true;
 
+
+
+        /* Start of Alternative 2 */
+//            switch (item.getItemId()) {
+//                case R.id.action_order:
+//                    displayToast(getString(R.string.action_order_message));
+//                    return true;
+//                case R.id.action_status:
+//                    displayToast(getString(R.string.action_status_message));
+//                    return true;
+//                case R.id.action_favorites:
+//                    displayToast(getString(R.string.action_favorites_message));
+//                    return true;
+//                case R.id.action_contact:
+//                    displayToast(getString(R.string.action_contact_message));
+//                    return true;
+//                default:
+//                    // Do nothing
+//            }
+//            return super.onOptionsItemSelected(item);
+//    }
+        /* End of Alternative 2 */
+
+        switch (item.getItemId()) {
+            case R.id.action_order:
+                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+                startActivity(intent);
+                return true;
+            // ... code for other cases
+        }
         return super.onOptionsItemSelected(item);
     }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     /**
      * Displays a Toast with the message.
